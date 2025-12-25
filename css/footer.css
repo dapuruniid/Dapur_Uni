@@ -1,0 +1,146 @@
+/* ======================================================
+   FOOTER — FINAL (READABILITY ONLY)
+   ------------------------------------------------------
+   Footer utama website
+   ⚠ Jangan mengubah tanpa audit visual
+====================================================== */
+
+/* ======================================================
+   FOOTER BASE
+====================================================== */
+footer {
+  background-color: #aa261a;
+  color: #ffffff;
+  padding: 48px 20px;
+}
+
+/* Container footer */
+.footer-container {
+  max-width: var(--container-max, 1200px);
+  margin: 0 auto;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+}
+
+/* ======================================================
+   FOOTER COLUMN
+====================================================== */
+.footer-col {
+  flex: 1 1 260px;
+  padding-top: 4px; /* samakan baseline visual */
+}
+
+/* ======================================================
+   FOOTER — ABOUT
+====================================================== */
+.footer-logo {
+  width: 64px;
+  height: auto;
+  margin-bottom: 12px;
+}
+
+.footer-about p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 6px;
+}
+
+.footer-about .footer-tagline {
+  font-size: 0.85rem;
+  opacity: 0.9;
+}
+
+/* ======================================================
+   FOOTER — HEADING
+====================================================== */
+.footer-info h4,
+.footer-contact h4 {
+  margin-bottom: 12px;
+
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+/* ======================================================
+   FOOTER — TEXT & LINK
+====================================================== */
+.footer-info p,
+.footer-contact p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 8px;
+}
+
+footer a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* ======================================================
+   FOOTER — CTA BUTTON
+====================================================== */
+.btn-footer {
+  display: inline-block;
+  margin-top: 14px;
+
+  background-color: #ffffff;
+  color: #b23126;
+
+  padding: 10px 18px;
+  border-radius: 8px;
+
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-footer:hover {
+  background-color: #f2f2f2;
+  transform: translateY(-1px);
+}
+
+/* ======================================================
+   RESPONSIVE — MOBILE
+====================================================== */
+@media (max-width: 768px) {
+  footer {
+    padding: 36px 20px;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .footer-col {
+    flex: 1 1 100%;
+    max-width: 100%;
+    padding-top: 0;
+  }
+
+  .footer-logo {
+    margin-bottom: 8px;
+  }
+
+  .footer-info p,
+  .footer-contact p {
+    margin-bottom: 6px;
+  }
+
+  .btn-footer {
+    margin-top: 10px;
+  }
+}

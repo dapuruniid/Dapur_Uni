@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jadwal | Dapur UNI</title>
+    <!-- ========== STYLESHEET ========== -->
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/navbar.css" />
+    <link rel="stylesheet" href="css/footer.css" />
+    <link rel="stylesheet" href="css/jadwal.css" />
+    <!-- ========== GOOGLE FONT & ICONS ========== -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <!-- ========== HEADER / NAVBAR ========== -->
+    <header class="header">
+      <nav class="navbar">
+        <div class="nav-left">
+          <img src="assets/logo.webp" alt="Logo Dapur UNI" class="logo" />
+          <span class="brand">Dapur UNI</span>
+        </div>
+
+        <!-- Tombol Hamburger -->
+        <button class="hamburger" id="hamburger">☰</button>
+
+        <ul class="nav-links" id="nav-links">
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="jadwal.html">Jadwal</a></li>
+          <li><a href="profil.html">Profil</a></li>
+          <li><a href="kontak.html">Kontak</a></li>
+        </ul>
+        <a
+          href="https://wa.me/6281315421428?text=Halo%20Dapur%20UNI,%0ASaya%20ingin%20bertanya%20mengenai%20layanan%20catering."
+          target="_blank"
+          rel="noopener noreferrer"
+          class="nav-cta"
+        >
+          <img src="assets/icons/whatsapp.svg" alt="WhatsApp" class="wa-icon" />
+          <span class="cta-text">Hubungi via WhatsApp</span>
+        </a>
+      </nav>
+    </header>
+
+    <!-- ========== MAIN CONTENT ========== -->
+    <main class="jadwal-page">
+      <section class="jadwal-container">
+        <!-- ===== LEFT : CALENDAR ===== -->
+        <div class="calendar-section">
+          <h1>Kalender Jadwal Pemesanan</h1>
+
+          <div class="calendar">
+            <!-- Header bulan -->
+            <div class="calendar-header">
+              <button class="nav-month prev">&lsaquo;</button>
+              <span class="month-label">Mei 2025</span>
+              <button class="nav-month next">&rsaquo;</button>
+            </div>
+
+            <table>
+              <thead>
+                <tr>
+                  <th>Sun</th>
+                  <th>Mon</th>
+                  <th>Tue</th>
+                  <th>Wed</th>
+                  <th>Thu</th>
+                  <th>Fri</th>
+                  <th>Sat</th>
+                </tr>
+              </thead>
+              <tbody id="calendar-body">
+                <!-- JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- ===== RIGHT : INFO ===== -->
+        <aside class="contact-section">
+          <h2>Jam Operasional</h2>
+          <p><strong>Setiap hari</strong><br />08.00 – 22.00 WIB</p>
+
+          <p>
+            Cek ketersediaan tanggal untuk acara Anda. Kami sarankan melakukan
+            pemesanan minimal <strong>5 hari</strong> sebelum acara.
+          </p>
+
+          <div class="note">
+            Jika tanggal yang Anda inginkan sudah penuh atau berada di luar
+            jadwal, silakan hubungi kami untuk diskusi jadwal alternatif.
+          </div>
+        </aside>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-container">
+        <!-- Kolom 1: Logo & Deskripsi -->
+        <div class="footer-col footer-about">
+          <img
+            src="assets/logo.webp"
+            alt="Logo Dapur UNI"
+            class="footer-logo"
+            width="80"
+            height="80"
+          />
+          <p>Masakan lezat dan layanan terbaik untuk setiap momen Anda.</p>
+        </div>
+
+        <!-- Kolom 2: Jam & Alamat -->
+        <div class="footer-col footer-info">
+          <h4>Jam Operasional</h4>
+          <p>Setiap Hari: 08:00 - 22:00</p>
+
+          <h4>Alamat</h4>
+          <p>
+            <a
+              href="https://maps.app.goo.gl/7gDW5cNARRouY1UP7"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Jl. Johar Baru Utara III, RT.003, RW.03, No.1A, Johar Baru,
+              Jakarta Pusat.
+            </a>
+          </p>
+        </div>
+
+        <!-- Kolom 3: Kontak -->
+        <div class="footer-col footer-contact">
+          <h4>Hubungi Kami</h4>
+          <p>📱 <a href="tel:+6281315421428"> +62 813 1542 1428</a></p>
+          <p>📞 <a href="tel:+6281380441379">+62 813 8044 1379</a></p>
+          <p>
+            ✉️
+            <a href="mailto:dapuruni.id@gmail.com">dapuruni.id@gmail.com</a>
+          </p>
+
+          <a href="kontak.html" class="btn-footer"> HUBUNGI KAMI </a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Optional: JS bisa disimpan di folder js -->
+    <script src="js/main.js"></script>
+    <script src="js/jadwal.js"></script>
+    <script src="js/navbar.js"></script>
+  </body>
+</html>
