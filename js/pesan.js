@@ -25,6 +25,13 @@ const state = {
 };
 
 /* ======================================================
+ * FULL BOOK DATE STATE (READ ONLY)
+ * ====================================================== */
+let fullBookDates = [];
+const BOOKED_CACHE_KEY = "dapuruni_fullbook_dates";
+const BOOKED_CACHE_TTL = 5 * 60 * 1000; // 5 menit
+
+/* ======================================================
  * DOM REFERENCES (diisi saat DOMContentLoaded)
  * ====================================================== */
 let menuContainer,
@@ -97,6 +104,47 @@ async function loadMenuMaster() {
  * ====================================================== */
 function sanitizeText(str) {
   return String(str).replace(/\s+/g, " ").trim();
+}
+
+/* ======================================================
+ * LOAD FULL BOOK DATES
+ * ====================================================== */
+async function loadBookedDates() {
+  // 1. cache dulu
+  try {
+    const cached = localStorage.getItem(BOOKED_CACHE_KEY);
+    if (cached) {
+      const parsed = JSON.parse(cached);
+      if (
+        parsed &&
+        Array.isArray(parsed.data) &&
+        Date.now() - parsed.time < BOOKED_CACHE_TTL
+      ) {
+        fullBookDates = parsed.data;
+        return;
+      }
+    }
+  } catch (_) {}
+
+  // 2. fetch dari server
+  try {
+    const res = await fetch(
+      "https://script.google.com/macros/s/AKfycbz-iIQh_tN3QrLadGNm7sGIoyzF28dFgF__2zSJ35mWPqs613E7sZAXi6Vss9_-4TaJ0Q/exec?action=getBookedDates"
+    );
+    const json = await res.json();
+
+    fullBookDates = Array.isArray(json.fullBookDates) ? json.fullBookDates : [];
+
+    localStorage.setItem(
+      BOOKED_CACHE_KEY,
+      JSON.stringify({
+        time: Date.now(),
+        data: fullBookDates,
+      })
+    );
+  } catch (err) {
+    console.warn("Gagal load booked dates", err);
+  }
 }
 
 /* ======================================================
@@ -233,7 +281,8 @@ document.addEventListener("DOMContentLoaded", () => {
   kirimBtn.addEventListener("click", submitOrder);
 
   setupToggle();
-  setupTanggal();
+  loadBookedDates().finally(setupTanggal);
+
   setupWilayah();
 
   updateEstimasiUI();
@@ -520,6 +569,14 @@ clearError("menuError");
  */
 async function submitOrder() {
   if (!validateFormStrict()) return;
+  // safety net — cegah submit tanggal full
+  if (fullBookDates.includes(tanggalInput.value)) {
+    showError(
+      "tanggalError",
+      "Tanggal sudah penuh. Silakan pilih tanggal lain."
+    );
+    return;
+  }
 
   if (!setujuCheckbox.checked) {
     showError("setujuError", "Anda harus menyetujui syarat & ketentuan.");
@@ -664,9 +721,24 @@ function setupTanggal() {
   tanggalInput.min = minDate.toISOString().split("T")[0];
 
   tanggalInput.addEventListener("input", () => {
-    const d = new Date(tanggalInput.value).getDay();
-    if (d === 0 || d === 6) {
+    clearError("tanggalError");
+
+    if (!tanggalInput.value) return;
+
+    // ❌ Sabtu / Minggu
+    const day = new Date(tanggalInput.value).getDay();
+    if (day === 0 || day === 6) {
       showError("tanggalError", "Tanggal tidak boleh Sabtu / Minggu.");
+      tanggalInput.value = "";
+      return;
+    }
+
+    // ❌ FULL BOOK
+    if (fullBookDates.includes(tanggalInput.value)) {
+      showError(
+        "tanggalError",
+        "Tanggal sudah penuh. Silakan pilih tanggal lain."
+      );
       tanggalInput.value = "";
     }
   });

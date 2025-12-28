@@ -10,7 +10,8 @@ const MENU_API_URL =
 
 // Cache config
 const CACHE_KEY = "dapuruni_menu_cache";
-const CACHE_TTL = 5 * 60 * 1000; // 5 menit
+//const CACHE_TTL = 5 * 60 * 1000; // 5 menit
+const CACHE_TTL = 0;
 
 /* ======================================================
  * FETCH MENU DATA (CACHE-AWARE)

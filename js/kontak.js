@@ -37,12 +37,12 @@ document.addEventListener("DOMContentLoaded", function () {
      * VALIDASI DASAR
      * ---------------------------------- */
     if (!nama || !kontak || !pesan) {
-      alert("Mohon lengkapi semua data terlebih dahulu.");
+      showToast("Mohon lengkapi semua data terlebih dahulu");
       return;
     }
 
     if (pesan.length < 10) {
-      alert("Pesan terlalu singkat. Mohon jelaskan lebih detail.");
+      showToast("Pesan terlalu singkat. Mohon jelaskan lebih detail");
       return;
     }
 
