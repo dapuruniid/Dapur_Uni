@@ -148,6 +148,29 @@ body > main,
   object-fit: cover;
 }
 
+.service-note {
+  margin-top: 12px;
+  margin-bottom: 18px;
+  font-size: 0.9rem;
+  color: #7a7a7a;
+}
+.service-note strong {
+  color: #b23126;
+}
+
+/* ======================================================
+   PROMO BANNER (OPTIONAL)
+====================================================== */
+.promo-banner {
+  margin-top: 24px;
+}
+
+.promo-banner img {
+  width: 100%;
+  border-radius: 12px;
+  display: block;
+}
+
 /* ------------------------------------------------------
    HERO — RESPONSIVE (MOBILE)
 ------------------------------------------------------ */
