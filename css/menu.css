@@ -26,6 +26,13 @@
   color: #555;
 }
 
+.menu-loading {
+  text-align: center;
+  padding: 2rem 0;
+  color: #777;
+  font-size: 1rem;
+}
+
 /* ======================================================
    MENU GRID (CARD WRAPPER)
 ====================================================== */
