@@ -61,7 +61,7 @@ function loadBookedDates() {
 
         if (calendarStatus) {
           calendarStatus.textContent =
-            "Garis bawah merah menandakan tanggal telah penuh (full booking).";
+            "Status ketersediaan tanggal telah diperbarui.";
         }
 
         return;
@@ -96,7 +96,7 @@ function loadBookedDates() {
 
       if (calendarStatus) {
         calendarStatus.textContent =
-          "Garis bawah merah menandakan tanggal telah penuh (full booking).";
+          "Status ketersediaan tanggal telah diperbarui.";
       }
     })
     .catch((err) => {
