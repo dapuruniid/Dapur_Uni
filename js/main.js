@@ -118,3 +118,17 @@ function showToast(message, duration = 2000) {
     toast.classList.remove("show");
   }, duration);
 }
+
+const promoBanner = document.getElementById("promoBanner");
+const promoImage = "assets/promo.webp";
+
+// Tampilkan banner jika file promo tersedia
+fetch(promoImage, { method: "HEAD" })
+  .then((res) => {
+    if (res.ok) {
+      promoBanner.hidden = false;
+    }
+  })
+  .catch(() => {
+    // Jika file tidak ada, banner tetap tersembunyi
+  });
