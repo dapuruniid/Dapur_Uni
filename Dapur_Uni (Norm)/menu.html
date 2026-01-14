@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Menu & Paket | Dapur UNI</title>
+
+    <!-- META SEO SINGKAT -->
+    <meta
+      name="description"
+      content="Daftar menu & paket catering Dapur UNI. Pilih paket nasi box, prasmanan, dan menu lainnya dengan cita rasa rumahan."
+    />
+
+    <link rel="icon" href="assets/logo.webp" type="image/png" />
+
+    <!-- STYLES -->
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/navbar.css" />
+    <link rel="stylesheet" href="css/footer.css" />
+    <link rel="stylesheet" href="css/menu.css" />
+
+    <!-- GOOGLE FONT -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <!-- TOAST NOTIFICATION -->
+  <div id="toast" class="toast"></div>
+
+  <body>
+    <!-- NAVBAR -->
+    <header class="header">
+      <nav class="navbar" aria-label="Navigasi Utama">
+        <div class="nav-left">
+          <a href="index.html" class="brand-link">
+            <img
+              src="assets/logo.webp"
+              alt="Logo Dapur UNI"
+              class="logo"
+              width="52"
+              height="52"
+            />
+            <span class="brand">Dapur UNI</span>
+          </a>
+        </div>
+
+        <button
+          class="hamburger"
+          id="hamburger"
+          aria-label="Menu Navigasi"
+          aria-expanded="false"
+          aria-controls="nav-links"
+        >
+          ☰
+        </button>
+
+        <ul class="nav-links" id="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="menu.html" class="active">Menu</a></li>
+          <li><a href="jadwal.html">Jadwal</a></li>
+          <li><a href="profil.html">Profil</a></li>
+          <li><a href="kontak.html">Kontak</a></li>
+        </ul>
+
+        <a
+          href="https://wa.me/6281315421428?text=Halo%20Dapur%20UNI,%0ASaya%20ingin%20bertanya%20mengenai%20layanan%20catering."
+          target="_blank"
+          rel="noopener noreferrer"
+          class="nav-cta"
+        >
+          <img
+            src="assets/icons/whatsapp.svg"
+            class="wa-icon"
+            alt="Ikon WhatsApp"
+          />
+          <span class="cta-text">Hubungi via WhatsApp</span>
+        </a>
+      </nav>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+      <!-- MENU SECTION -->
+      <section class="menu-section" id="menu">
+        <div class="container">
+          <h1>Menu & Paket Dapur UNI</h1>
+          <p>
+            Pilih menu favorit Anda, semua dimasak dengan bahan segar setiap
+            hari.
+          </p>
+
+          <div id="menuGrid" class="menu-grid"></div>
+        </div>
+      </section>
+
+      <!-- MODAL DETAIL MENU -->
+      <div id="menuModal" class="menu-modal">
+        <div class="menu-modal-content">
+          <button
+            class="menu-modal-close"
+            type="button"
+            aria-label="Tutup detail menu"
+            onclick="closeModal()"
+          >
+            &times;
+          </button>
+
+          <div class="menu-modal-left">
+            <img id="modalImage" src="" alt="Menu Image" />
+          </div>
+
+          <div class="menu-modal-right">
+            <div class="modal-content-scroll">
+              <h2 id="modalTitle">Nama Paket</h2>
+              <p id="modalDesc">Deskripsi paket akan muncul di sini.</p>
+              <p id="modalPrice"></p>
+              <p id="modalPortion"></p>
+
+              <h4>Makanan</h4>
+              <ul id="modalFood"></ul>
+
+              <p>
+                <strong>Kategori:</strong>
+                <span id="modalCategory"></span>
+              </p>
+              <p>
+                <strong>Tags:</strong>
+                <span id="modalTags"></span>
+              </p>
+
+              <label for="paxSelect">Jumlah Porsi:</label>
+              <select id="paxSelect"></select>
+            </div>
+
+            <div class="menu-modal-actions">
+              <!-- Tombol putih: Tambah ke Keranjang -->
+              <button
+                id="btnAddCart"
+                class="btn-secondary btn-cart btn-animate"
+                type="button"
+              >
+                <img
+                  src="assets/icons/cart.svg"
+                  alt=""
+                  class="btn-cart-icon"
+                  aria-hidden="true"
+                />
+                <span>Tambah ke Keranjang</span>
+              </button>
+
+              <!-- Tombol merah: Pesan Sekarang -->
+              <button
+                id="btnOrderNow"
+                class="btn-primary btn-animate"
+                type="button"
+              >
+                Pesan Sekarang
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-container">
+        <!-- Kolom 1: Logo & Deskripsi -->
+        <div class="footer-col footer-about">
+          <img
+            src="assets/logo.webp"
+            alt="Logo Dapur UNI"
+            class="footer-logo"
+            width="80"
+            height="80"
+          />
+          <p>Masakan lezat dan layanan terbaik untuk setiap momen Anda.</p>
+        </div>
+
+        <!-- Kolom 2: Jam & Alamat -->
+        <div class="footer-col footer-info">
+          <h4>Jam Operasional</h4>
+          <p>Setiap Hari: 08:00 - 22:00</p>
+
+          <h4>Alamat</h4>
+          <p>
+            <a
+              href="https://maps.app.goo.gl/7gDW5cNARRouY1UP7"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Jl. Johar Baru Utara III, RT.003, RW.03, No.1A, Johar Baru,
+              Jakarta Pusat.
+            </a>
+          </p>
+        </div>
+
+        <!-- Kolom 3: Kontak -->
+        <div class="footer-col footer-contact">
+          <h4>Hubungi Kami</h4>
+          <p>📱 <a href="tel:+6281315421428"> +62 813 1542 1428</a></p>
+          <p>📞 <a href="tel:+6281380441379">+62 813 8044 1379</a></p>
+          <p>
+            ✉️
+            <a href="mailto:dapuruni.id@gmail.com">dapuruni.id@gmail.com</a>
+          </p>
+
+          <a href="kontak.html" class="btn-footer"> HUBUNGI KAMI </a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- SCRIPT -->
+    <script src="js/main.js" defer></script>
+    <script src="js/navbar.js" defer></script>
+    <script src="js/menu-api.js" defer></script>
+    <script src="js/menu.js" defer></script>
+  </body>
+</html>

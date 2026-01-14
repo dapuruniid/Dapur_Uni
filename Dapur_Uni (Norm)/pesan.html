@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pesan | Dapur UNI</title>
+    <link rel="stylesheet" href="css/pesan.css" />
+  </head>
+
+  <body>
+    <!-- ========== MAIN CONTENT ========== -->
+    <!-- tambahkan main-content agar jarak dari navbar konsisten dengan halaman lain -->
+    <main class="main-content pesan-page">
+      <section class="pesan-container">
+        <h1>Form Pemesanan Catering</h1>
+        <p class="pesan-subtitle">
+          Lengkapi formulir di bawah ini. Pesanan Anda akan dikirim ke WhatsApp
+          Admin Dapur UNI untuk konfirmasi lebih lanjut.
+        </p>
+
+        <form id="formPesanan" class="pesan-form">
+          <!-- Nama -->
+          <label for="nama">Nama Lengkap</label>
+          <input
+            type="text"
+            id="nama"
+            placeholder="Masukkan nama lengkap"
+            minlength="3"
+            maxlength="50"
+            pattern="[A-Za-zÀ-ÿ.\s]+"
+            required
+          />
+          <small class="error-text" id="namaError"></small>
+
+          <!-- WA -->
+          <label for="noWa">Nomor WhatsApp</label>
+          <input
+            type="tel"
+            id="noWa"
+            placeholder="Contoh: 08xxxxxxxx"
+            minlength="10"
+            maxlength="15"
+            pattern="^(08|62)[0-9]{8,13}$"
+            required
+          />
+          <small class="error-text" id="waError"></small>
+
+          <!-- Tanggal & Jam -->
+          <div class="form-row">
+            <div class="form-group">
+              <label for="tanggal">Tanggal Acara</label>
+              <input type="date" id="tanggal" required />
+            </div>
+            <small class="error-text" id="tanggalError"></small>
+
+            <div class="form-group">
+              <label for="jam">Jam Acara</label>
+              <input type="time" id="jam" required />
+            </div>
+          </div>
+
+          <!-- Tipe Pengiriman -->
+          <label>Tipe Pengiriman</label>
+          <div class="pickup-delivery-row">
+            <button type="button" class="pd-btn active" id="optDelivery">
+              Delivery ( Diantar )
+            </button>
+            <button type="button" class="pd-btn" id="optPickup">
+              Pick Up ( Ambil di Tempat )
+            </button>
+          </div>
+
+          <!-- Wilayah -->
+          <label for="kota">Wilayah Pengantaran (Hanya Jadetabek)</label>
+          <div class="form-row">
+            <select id="kota" required>
+              <option value="">Pilih Kota</option>
+              <option>Jakarta Pusat</option>
+              <option>Jakarta Timur</option>
+              <option>Jakarta Barat</option>
+              <option>Jakarta Selatan</option>
+              <option>Jakarta Utara</option>
+              <option>Bekasi</option>
+              <option>Tangerang</option>
+              <option>Depok</option>
+            </select>
+
+            <select id="kecamatan" required>
+              <option value="">Pilih Kecamatan</option>
+            </select>
+
+            <select id="kelurahan" required>
+              <option value="">Pilih Kelurahan</option>
+            </select>
+          </div>
+
+          <!-- Alamat -->
+          <label for="alamat"
+            >Alamat Lengkap (Opsional jika ingin diantar)</label
+          >
+          <input
+            type="text"
+            id="alamat"
+            placeholder="Misal: Jl. Melati No.12 RT.04/RW.03 (samping warung teh Yuli)"
+            maxlength="150"
+            pattern="[A-Za-z0-9À-ÿ\s.,\/()-]*"
+          />
+          <small class="error-text" id="alamatError"></small>
+
+          <!-- Menu & Jumlah -->
+          <label>Menu & Jumlah Pesanan</label>
+          <div id="menuContainer"></div>
+          <small class="error-text" id="menuError"></small>
+
+          <button type="button" id="tambahMenu" class="btn-secondary">
+            + Tambah Menu
+          </button>
+
+          <!-- Estimasi Harga -->
+          <div class="estimasi-harga">
+            <span>Estimasi Total Harga</span>
+            <strong id="estimasiHarga">Rp 0</strong>
+          </div>
+          <small id="deliveryNote" class="delivery-note">
+            *Estimasi harga di atas sudah termasuk biaya pengantaran untuk
+            wilayah Jadetabek.
+          </small>
+
+          <!-- Catatan -->
+          <label for="catatan">Catatan Tambahan (Opsional)</label>
+          <textarea
+            id="catatan"
+            placeholder="Tulis permintaan khusus..."
+            maxlength="200"
+            pattern="[A-Za-z0-9À-ÿ\s.,!?()-]*"
+          ></textarea>
+
+          <!-- Pembayaran -->
+          <label for="pembayaran">Pembayaran via</label>
+          <select id="pembayaran" required>
+            <option value="">Pilih Metode Pembayaran</option>
+
+            <!-- Transfer Bank -->
+            <optgroup label="Transfer Bank">
+              <option value="Transfer BCA">Transfer BCA</option>
+              <option value="Transfer Mandiri">Transfer Mandiri</option>
+              <option value="Transfer BNI">Transfer BNI</option>
+              <option value="Transfer BRI">Transfer BRI</option>
+              <option value="Transfer CIMB Niaga">Transfer CIMB Niaga</option>
+            </optgroup>
+
+            <!-- Dompet Digital -->
+            <optgroup label="Dompet Digital / E-Wallet">
+              <option value="QRIS">QRIS (Semua E-Wallet)</option>
+              <option value="GoPay">GoPay</option>
+              <option value="OVO">OVO</option>
+              <option value="DANA">DANA</option>
+              <option value="ShopeePay">ShopeePay</option>
+              <option value="LinkAja">LinkAja</option>
+            </optgroup>
+
+            <!-- Pembayaran Langsung -->
+            <optgroup label="Pembayaran Langsung">
+              <option value="COD">COD (Bayar di Tempat)</option>
+            </optgroup>
+          </select>
+          <small class="error-text" id="pembayaranError"></small>
+
+          <!-- S&K -->
+          <div class="syarat">
+            <input type="checkbox" id="setuju" required />
+            <label for="setuju">
+              Saya menyetujui syarat dan ketentuan pemesanan, yaitu pemesanan
+              dilakukan minimal H-5 sebelum acara, pesanan berstatus pending
+              hingga pembayaran diterima, serta pembayaran wajib dilakukan
+              maksimal 2 jam setelah pemesanan.
+            </label>
+            <small class="error-text" id="setujuError"></small>
+          </div>
+
+          <button type="button" id="kirimBtn" class="btn-primary">
+            Pesan via WhatsApp
+          </button>
+        </form>
+
+        <div class="note">
+          <p>
+            <strong>Catatan:</strong> Pastikan tanggal, wilayah, dan menu yang
+            Anda pilih sudah benar. Pesanan akan dikirim ke WhatsApp Admin Dapur
+            UNI untuk konfirmasi lebih lanjut.
+          </p>
+        </div>
+      </section>
+    </main>
+    <!-- ========== SCRIPT ========== -->
+    <script src="js/pesan.js" defer></script>
+    <script src="js/main.js" defer></script>
+  </body>
+</html>

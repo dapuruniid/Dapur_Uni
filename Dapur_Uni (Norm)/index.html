@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dapur UNI | Masakan Enak, Harga Terjangkau</title>
+
+    <!-- ========== META TAGS SEO ========== -->
+    <meta
+      name="description"
+      content="Dapur UNI menyediakan layanan catering rumahan dengan cita rasa khas, menu variatif, dan harga terjangkau. Cocok untuk acara keluarga, kantor, dan event spesial Anda."
+    />
+    <meta
+      property="og:title"
+      content="Dapur UNI | Masakan Enak, Harga Terjangkau"
+    />
+    <meta
+      property="og:description"
+      content="Catering rumahan dengan cita rasa khas dan layanan profesional. Pesan mudah via WhatsApp!"
+    />
+    <meta property="og:image" content="assets/hero.webp" />
+    <meta property="og:type" content="website" />
+    <link rel="icon" href="assets/logo.webp" type="image/png" />
+
+    <!-- ========== STYLESHEET ========== -->
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/navbar.css" />
+    <link rel="stylesheet" href="css/home.css" />
+    <link rel="stylesheet" href="css/footer.css" />
+
+    <!-- ========== GOOGLE FONT & ICONS ========== -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <!-- ========== HEADER / NAVBAR ========== -->
+    <header class="header">
+      <nav class="navbar" aria-label="Navigasi Utama">
+        <div class="nav-left">
+          <a href="index.html" class="brand-link">
+            <img
+              src="assets/logo.webp"
+              alt="Logo Dapur UNI"
+              class="logo"
+              width="52"
+              height="52"
+            />
+            <span class="brand">Dapur UNI</span>
+          </a>
+        </div>
+
+        <!-- Tombol Hamburger -->
+        <button
+          class="hamburger"
+          id="hamburger"
+          aria-label="Menu Navigasi"
+          aria-expanded="false"
+          aria-controls="nav-links"
+        >
+          ☰
+        </button>
+
+        <ul class="nav-links" id="nav-links">
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="jadwal.html">Jadwal</a></li>
+          <li><a href="profil.html">Profil</a></li>
+          <li><a href="kontak.html">Kontak</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- ========== MAIN CONTENT ========== -->
+    <main class="main-content">
+      <!-- ========== HERO SECTION ========== -->
+      <section class="hero" id="hero">
+        <div class="hero-overlay"></div>
+
+        <div class="container hero-content">
+          <div class="hero-text" data-animate="fade-in">
+            <h1>Selamat Datang di <span>Dapur UNI</span></h1>
+            <p>
+              Nikmati catering rumahan dengan cita rasa khas, harga terjangkau,
+              dan pelayanan profesional. Cocok untuk acara keluarga, kantor,
+              atau event spesial Anda.
+            </p>
+            <p class="service-note">
+              <strong>Catatan Layanan:</strong>
+              Saat ini pemesanan katering hanya melayani wilayah
+              <strong>Jadetabek</strong>.
+            </p>
+            <div class="hero-buttons">
+              <a href="menu.html" class="btn-primary">Lihat Menu</a>
+            </div>
+          </div>
+
+          <div class="hero-image-wrapper" data-animate="slide-up">
+            <img
+              src="assets/hero.webp"
+              alt="Masakan khas Dapur UNI"
+              loading="lazy"
+              width="420"
+              height="250"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- ========== PROMO BANNER (OPTIONAL) ========== -->
+      <section class="promo-banner" id="promoBanner" hidden>
+        <div class="container">
+          <img
+            src="assets/promo.webp"
+            alt="Promo spesial Dapur UNI"
+            loading="lazy"
+          />
+        </div>
+      </section>
+
+      <!-- ========== PROFIL HOME SECTION ========== -->
+      <section class="profil-home">
+        <div class="container">
+          <h2>Kenali Dapur UNI</h2>
+          <p>
+            Masakan rumahan dengan cita rasa khas, dari hati sejak 2023.
+            Catering lezat untuk semua acara Anda.
+          </p>
+
+          <div class="features-home">
+            <div>🍛 Rasa Rumahan</div>
+            <div>🕒 Tepat Waktu</div>
+            <div>💬 Custom Menu</div>
+            <div>💰 Harga Bersahabat</div>
+          </div>
+
+          <a href="profil.html" class="btn-primary">Pelajari Lebih Lanjut</a>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-container">
+        <!-- Kolom 1: Logo & Deskripsi -->
+        <div class="footer-col footer-about">
+          <img
+            src="assets/logo.webp"
+            alt="Logo Dapur UNI"
+            class="footer-logo"
+            width="80"
+            height="80"
+          />
+          <p>Masakan lezat dan layanan terbaik untuk setiap momen Anda.</p>
+        </div>
+
+        <!-- Kolom 2: Jam & Alamat -->
+        <div class="footer-col footer-info">
+          <h4>Jam Operasional</h4>
+          <p>Setiap Hari: 08:00 - 22:00</p>
+
+          <h4>Alamat</h4>
+          <p>
+            <a
+              href="https://maps.app.goo.gl/7gDW5cNARRouY1UP7"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Jl. Johar Baru Utara III, RT.003, RW.03, No.1A, Johar Baru,
+              Jakarta Pusat.
+            </a>
+          </p>
+        </div>
+
+        <!-- Kolom 3: Kontak -->
+        <div class="footer-col footer-contact">
+          <h4>Hubungi Kami</h4>
+          <p>📱 <a href="tel:+6281315421428"> +62 813 1542 1428</a></p>
+          <p>📞 <a href="tel:+6281380441379">+62 813 8044 1379</a></p>
+          <p>
+            ✉️
+            <a href="mailto:dapuruni.id@gmail.com">dapuruni.id@gmail.com</a>
+          </p>
+
+          <a href="kontak.html" class="btn-footer"> HUBUNGI KAMI </a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ========== SCRIPT ========== -->
+    <script src="js/main.js"></script>
+    <script src="js/navbar.js"></script>
+  </body>
+</html>

@@ -1,0 +1,281 @@
+/* ======================================================
+   home.css
+   ------------------------------------------------------
+   HOME PAGE STYLES — FINAL (READABILITY ONLY)
+   Sinkron dengan header fixed (navbar.css)
+   ⚠ Jangan ubah tanpa audit visual
+====================================================== */
+
+/* ======================================================
+   CSS VARIABLES (HOME SCOPE)
+   ------------------------------------------------------
+   Catatan:
+   - Variabel sengaja didefinisikan ulang di sini
+   - Untuk konsistensi lintas halaman
+====================================================== */
+:root {
+  --header-h-desktop: 72px;
+  --header-h-mobile: 64px;
+
+  --container-max: 1200px;
+  --space-section: 56px;
+
+  --brand: #b23126;
+  --text: #333;
+  --text-dim: #555;
+
+  --bg-soft: #fff8f3;
+}
+
+/* ======================================================
+   GLOBAL BEHAVIOR (HOME)
+====================================================== */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ======================================================
+   LAYOUT CONTAINER
+   Digunakan di hero & profil
+====================================================== */
+.container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ======================================================
+   HEADER OFFSET (FIXED NAVBAR)
+   Mencegah konten ketiban header
+====================================================== */
+body > main,
+.main-content {
+  padding-top: var(--header-h-desktop);
+}
+
+@media (max-width: 768px) {
+  body > main,
+  .main-content {
+    padding-top: var(--header-h-mobile);
+  }
+}
+
+/* ======================================================
+   HERO SECTION
+====================================================== */
+.hero {
+  position: relative;
+  background: linear-gradient(to right, var(--bg-soft), #fff);
+  padding: 40px 0 40px;
+}
+
+/* Overlay dekoratif di belakang konten hero */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+      circle at top left,
+      rgba(178, 49, 38, 0.18),
+      transparent 55%
+    ),
+    radial-gradient(
+      circle at bottom right,
+      rgba(255, 184, 153, 0.25),
+      transparent 60%
+    );
+  opacity: 0.75;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Konten utama hero */
+.hero-content {
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 100%;
+  gap: 24px;
+}
+
+/* Teks hero */
+.hero-text {
+  flex: 1 1 400px;
+  min-width: 280px;
+}
+
+.hero-text h1 {
+  margin: 0 0 15px;
+  font-size: 2rem;
+  line-height: 1.25;
+  color: var(--text);
+}
+
+.hero-text span {
+  color: var(--brand);
+}
+
+.hero-text p {
+  margin-bottom: 20px;
+  font-size: 1rem;
+  color: var(--text-dim);
+}
+
+/* Tombol hero */
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+/* Wrapper gambar hero */
+.hero-image-wrapper {
+  flex: 1 1 350px;
+  min-width: 280px;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-image-wrapper img {
+  display: block;
+  width: 100%;
+  max-width: 420px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.service-note {
+  margin-top: 12px;
+  margin-bottom: 18px;
+  font-size: 0.9rem;
+  color: #7a7a7a;
+}
+.service-note strong {
+  color: #b23126;
+}
+
+/* ======================================================
+   PROMO BANNER (OPTIONAL)
+====================================================== */
+.promo-banner {
+  margin-top: 24px;
+}
+
+.promo-banner img {
+  width: 100%;
+  border-radius: 12px;
+  display: block;
+}
+
+/* ------------------------------------------------------
+   HERO — RESPONSIVE (MOBILE)
+------------------------------------------------------ */
+@media (max-width: 768px) {
+  .hero {
+    padding: 90px 0 40px;
+    text-align: center;
+  }
+
+  .hero-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero-text h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero-text p {
+    font-size: 0.95rem;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+    margin-bottom: 16px;
+  }
+
+  .hero-image-wrapper {
+    margin-top: 8px;
+    text-align: center;
+  }
+
+  .hero-image-wrapper img {
+    width: 90%;
+    max-width: 380px;
+    height: auto;
+  }
+}
+
+/* ======================================================
+   PROFIL SECTION (HOME)
+====================================================== */
+.profil-home {
+  max-width: 1000px;
+  margin: 0 auto;
+
+  padding: 1rem 1.5rem 3rem;
+  text-align: center;
+}
+
+.profil-home h2 {
+  margin: 0 0 15px;
+  font-size: 1.8rem;
+  color: var(--text);
+}
+
+.profil-home p {
+  margin-bottom: 30px;
+  font-size: 1rem;
+  color: var(--text-dim);
+}
+
+/* Fitur / keunggulan singkat */
+.features-home {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.features-home div {
+  padding: 10px 15px;
+  border-radius: 8px;
+
+  background-color: #fff1f1;
+  color: #b63434;
+  font-weight: 600;
+}
+
+/* ======================================================
+   SECTION SPACING (HOME)
+   - Hero sebagai section pertama tidak terdorong
+====================================================== */
+section + section {
+  margin-top: var(--space-section);
+}
+
+/* ======================================================
+   SMALL ENHANCEMENTS
+====================================================== */
+
+/* Mencegah "lompat" visual saat header blur aktif */
+img {
+  transform: translateZ(0);
+}
+
+/* Anchor offset agar judul section tidak ketiban header */
+:target {
+  scroll-margin-top: var(--header-h-desktop);
+}
+
+@media (max-width: 768px) {
+  :target {
+    scroll-margin-top: var(--header-h-mobile);
+  }
+}
