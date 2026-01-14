@@ -147,6 +147,9 @@ function initMenuPage(data) {
   menuData = data;
 
   const grid = document.getElementById("menuGrid");
+  const loading = document.getElementById("menuLoading");
+
+  if (loading) loading.style.display = "none";
   if (!grid) return;
 
   grid.innerHTML = "";
@@ -199,7 +202,7 @@ function initMenuPage(data) {
     }
   }
 
-  renderBatch();
+  requestAnimationFrame(renderBatch);
 }
 
 /* ======================================================

@@ -13,6 +13,7 @@ const calendarBody = document.getElementById("calendar-body");
 const monthLabel = document.querySelector(".month-label");
 const prevBtn = document.querySelector(".prev");
 const nextBtn = document.querySelector(".next");
+const calendarStatus = document.getElementById("calendarStatus");
 
 /* ======================================================
  * GLOBAL STATE
@@ -32,12 +33,16 @@ let fullBookDates = [];
  * CACHE CONFIG (NON-BREAKING)
  * ====================================================== */
 const CACHE_KEY = "dapuruni_full_book_dates";
-const CACHE_TTL = 5 * 60 * 1000; // 5 menit
+const CACHE_TTL = 30 * 60 * 1000; // 30 menit
 
 /* ======================================================
  * API — LOAD FULL BOOK DATES
  * ====================================================== */
 function loadBookedDates() {
+  if (calendarStatus) {
+    calendarStatus.textContent = "Memuat status ketersediaan tanggal...";
+  }
+
   // ----------------------------------
   // 1. Cek cache dulu
   // ----------------------------------
@@ -53,6 +58,12 @@ function loadBookedDates() {
       ) {
         fullBookDates = parsed.data;
         renderCalendar(currentMonth, currentYear);
+
+        if (calendarStatus) {
+          calendarStatus.textContent =
+            "Garis bawah merah menandakan tanggal telah penuh (full booking).";
+        }
+
         return;
       }
     }
@@ -82,11 +93,21 @@ function loadBookedDates() {
       );
 
       renderCalendar(currentMonth, currentYear);
+
+      if (calendarStatus) {
+        calendarStatus.textContent =
+          "Garis bawah merah menandakan tanggal telah penuh (full booking).";
+      }
     })
     .catch((err) => {
       console.error("Gagal load booked dates:", err);
       fullBookDates = [];
       renderCalendar(currentMonth, currentYear);
+
+      if (calendarStatus) {
+        calendarStatus.textContent =
+          "Gagal memuat status ketersediaan tanggal. Silakan muat ulang halaman.";
+      }
     });
 }
 
