@@ -71,7 +71,7 @@
           </div>
 
           <!-- Wilayah -->
-          <label for="kota">Wilayah Pengantaran</label>
+          <label for="kota">Wilayah Pengantaran (Hanya Jadetabek)</label>
           <div class="form-row">
             <select id="kota" required>
               <option value="">Pilih Kota</option>
@@ -122,7 +122,8 @@
             <strong id="estimasiHarga">Rp 0</strong>
           </div>
           <small id="deliveryNote" class="delivery-note">
-            *Estimasi harga belum termasuk biaya pengantaran
+            *Estimasi harga di atas sudah termasuk biaya pengantaran untuk
+            wilayah Jadetabek.
           </small>
 
           <!-- Catatan -->
@@ -170,9 +171,9 @@
             <input type="checkbox" id="setuju" required />
             <label for="setuju">
               Saya menyetujui syarat dan ketentuan pemesanan, yaitu pemesanan
-              dilakukan minimal H-5 sebelum acara, dengan minimal 2 pesanan.
-              Pesanan dapat diterima setiap hari, namun proses pembuatan
-              dilakukan pada hari kerja (Senin-Jumat).
+              dilakukan minimal H-5 sebelum acara, pesanan berstatus pending
+              hingga pembayaran diterima, serta pembayaran wajib dilakukan
+              maksimal 2 jam setelah pemesanan.
             </label>
             <small class="error-text" id="setujuError"></small>
           </div>
